@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :books
-  resources :authors
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #these are the routes we make fetch requests to
+  namespace : api do #this means add api and v1 to every route; i.e. fetch(`http://localhost:3000/api/v1/authors`)
+    namespace :v1 do
+      resources :books
+      resources :authors
+    end
+  end
 end
+
+
